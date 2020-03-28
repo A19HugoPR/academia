@@ -1,4 +1,4 @@
-# academia
+#  Módulo Academia
 ### Módulo
 
 - Este módulo tiene como objetivo principal gestionar los profesores y asignaturas de una academia. Está formado
