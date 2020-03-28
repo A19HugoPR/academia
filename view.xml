@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_asignatura_tree" model="ir.ui.view">
+            <field name="name">academia.asignatura.tree</field>
+            <field name="model">academia.asignatura</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Asignatura">
+                    <field name="nombre" />
+                    <field name="tipo" />
+                    <field name="temas" />
+                    <field name="profesor"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_asignatura_form" model="ir.ui.view">
+        <field name="name">Asignaturas</field>
+        <field name="model">academia.asignatura</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="nombre"/>
+                    <field name="tipo"/>
+                    <field name="temas"/>
+                    <field name="profesor"/>
+                    
+                </group>
+            </form>
+        </field>
+        </record>
+
+
+        <record id="view_profesor_form" model="ir.ui.view">
+            <field name="name">academia.profesor.form</field>
+            <field name="model">academia.profesor</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Profesor">
+                    <field name="partner_id" required="1" placeholder="John" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_view_profesores">
+            <field name="name">Profesores</field>
+            <field name="res_model">academia.profesor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo profesor</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_view_asignaturas">
+            <field name="name">Asignaturas</field>
+            <field name="res_model">academia.asignatura</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea una nueva asignatura</p>
+            </field>
+        </record>
+
+        <menuitem id="menu_academia" name="Academia"/>
+        <menuitem id="menu_profesor" name="Profesores" parent="menu_academia" action="action_view_profesores"/>
+        <menuitem id="menu_asignatura" name="Asignaturas" parent="menu_academia" action="action_view_asignaturas"/>/>
+    </data>
+</odoo>
